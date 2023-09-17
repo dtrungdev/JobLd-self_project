@@ -6,9 +6,9 @@ const cl = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
     return (
-        <div>
+        <div className={cl('wrapper')}>
             <Header />
-            <div className={cl('container')}>
+            <div className={cl('container-all')}>
                 <div className={cl('content')}>{children}</div>
             </div>
         </div>

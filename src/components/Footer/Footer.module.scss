@@ -1,0 +1,49 @@
+.wrapper {
+    background: linear-gradient(291deg, #189751 0%, #123138 54.89%);
+}
+.content {
+    padding-top: 48px;
+    padding-bottom: 10px;
+}
+
+.footer-brand {
+    font-family: 'Lexend', 'san-serif';
+    .footer-logo {
+        width: 81px;
+        height: 81px;
+    }
+    .footer-like {
+        color: #607d8b;
+        margin-left: 18px;
+        font-size: 8.1rem;
+        position: absolute;
+    }
+    .slogan {
+        color: var(--white-color);
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+}
+
+.column {
+    max-width: 75%;
+}
+
+.box-item {
+    display: inline-block;
+    color: var(--white-color);
+    .title {
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+    .info {
+        font-size: 1.6rem;
+    }
+}

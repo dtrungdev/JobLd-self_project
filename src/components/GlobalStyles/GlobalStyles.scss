@@ -1,9 +1,12 @@
 @import 'normalize.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600&family=Roboto:wght@300;400;500;700&family=Rubik:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary-color: #00b14f;
+    --text-color: #212f3f;
+    --white-color: #fff;
+    --black-color: #000;
 }
 
 html {
@@ -13,7 +16,21 @@ html {
     box-sizing: border-box;
 }
 body {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.6rem;
+    font-family: 'Lexend', sans-serif;
     text-rendering: optimizeSpeed;
+}
+
+a[href] {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    li {
+        float: left;
+    }
+}
+
+.btn {
+    border-radius: 4px;
 }

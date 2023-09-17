@@ -1,8 +1,8 @@
-import Home from '../pages/Home';
+import Homepage from '../pages/Homepage';
 import Profile from '../pages/Profile';
 
 const publicRoutes = [
-    { path: '/', component: Home },
+    { path: '/', component: Homepage },
     { path: '/profile', component: Profile },
 ];
 

@@ -1,0 +1,25 @@
+.wrapper {
+    background: #fff;
+    border: none !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 16px rgba(0, 0, 0, 0.06);
+    display: block;
+    font-family: Inter, sans-serif;
+    margin-top: 4px;
+    max-height: 225px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+    height: 10px;
+    width: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background: rgba(33, 47, 63, 0.15) !important;
+    border-radius: 10px !important;
+}
