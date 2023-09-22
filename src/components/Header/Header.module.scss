@@ -53,6 +53,13 @@ ul {
         padding: 12px 20px;
         font-size: 1.6rem;
     }
+    .register-btn {
+        margin-left: 10px;
+        background-color: #043c1e;
+        &:hover {
+            background-color: rgba($color: #0d0f0d, $alpha: 0.9);
+        }
+    }
 }
 
 .change-language {

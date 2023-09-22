@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import Tippy from '@tippyjs/react/headless';
 import styles from './SearchJob.module.scss';
 import classNames from 'classnames/bind';
-import { faFilter, faLocationDot, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '../Popper';

@@ -46,10 +46,15 @@
 
 .search-button {
     button {
+        background-color: #01a24a;
         font-size: 1.8rem;
         height: 56px;
         width: 240px;
         border-radius: 4px !important;
+        border: #01a24a;
+        &:hover {
+            background-color: rgba($color: #0f7e09, $alpha: 0.9);
+        }
     }
 }
 .search-city {
