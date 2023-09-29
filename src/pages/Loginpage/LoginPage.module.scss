@@ -19,6 +19,15 @@
         flex: 1;
         justify-content: center;
     }
+    .alert-message {
+        font-size: 1.4rem;
+        padding: 10px 15px;
+        color: red;
+        background-color: rgba(red, 0.07);
+    }
+    .hidden {
+        display: none;
+    }
     label {
         font-size: 1.4rem;
         margin-bottom: 4px;
@@ -102,6 +111,27 @@
         }
     }
 }
+.error {
+    display: flex;
+    border: 1px solid red;
+    border-radius: 3px;
+    .icon-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        color: red;
+        font-size: 1.6rem;
+    }
+    .hide-password {
+        color: #868686;
+        cursor: pointer;
+        svg {
+            padding: 12px;
+        }
+    }
+}
 
 .social-login {
     display: flex;
@@ -142,10 +172,18 @@
     font-weight: 600;
     color: #fff;
     height: 100vh;
-    width: 500px;
+    width: 400px;
     background: linear-gradient(0deg, #189751 0%, #123138 54.89%);
     display: block;
-    .slogan-text {
-        font-size: 2.4rem;
+    position: relative;
+    .text {
+        width: 100%;
+        position: absolute;
+        transform: translateY(-50%);
+        margin-top: -50px;
+        top: 50%;
+        .slogan-text {
+            font-size: 2.4rem;
+        }
     }
 }

@@ -7,12 +7,15 @@ import { faFacebook, faGoogle, faLinkedin } from '@fortawesome/free-brands-svg-i
 import { useState } from 'react';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo.svg';
 
 const cl = classNames.bind(styles);
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isShowPassword, setIsShowPassword] = useState(false);
+    const [isShowAlert, setIsShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
     const defaultObjValueInput = {
         isValidValueInput: true,
@@ -22,15 +25,32 @@ function LoginPage() {
     const [objValueInput, setObjValueInput] = useState(defaultObjValueInput);
 
     const handleLogin = () => {
+        if (!email && !password) {
+            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: false });
+            setIsShowAlert(true);
+            setAlertMessage('Vui lòng nhập thông tin.');
+            return;
+        }
         if (!email) {
             setObjValueInput({ ...defaultObjValueInput, isValidValueInput: false });
+            setIsShowAlert(true);
+            setAlertMessage('Vui lòng nhập email.');
             return;
+        } else {
+            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: true });
+            setIsShowAlert(false);
         }
         if (!password) {
             setObjValueInput({ ...defaultObjValueInput, isValidPassword: false });
+            setIsShowAlert(true);
+            setAlertMessage('Vui lòng nhập mật khẩu.');
             return;
+        } else {
+            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: true });
+            setIsShowAlert(false);
         }
     };
+
     return (
         <div className={cl('wrapper')}>
             <div className={cl('content', 'd-flex', 'flex-wrap-reverse')}>
@@ -43,6 +63,7 @@ function LoginPage() {
                                     Cùng xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý tưởng
                                 </div>
                             </header>
+                            <div className={isShowAlert ? cl('alert-message') : cl('hidden')}>{alertMessage}</div>
                             <div className={cl('register')}>
                                 <div className={cl('form-group')}>
                                     <label htmlFor="email">Email</label>
@@ -82,7 +103,7 @@ function LoginPage() {
                                             type={isShowPassword === true ? 'password' : 'text'}
                                             name=""
                                             id="password"
-                                            placeholder="Mat khau"
+                                            placeholder="Mật khẩu"
                                             value={password}
                                             onChange={(event) => setPassword(event.target.value)}
                                         />
@@ -94,11 +115,11 @@ function LoginPage() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className={cl('forgot-password')}>Quen mat khau</div>
-                                <Button variant="primary" className={cl('btn-sign')}>
-                                    Dang nhap
+                                <div className={cl('forgot-password')}>Quên mật khẩu</div>
+                                <Button variant="primary" className={cl('btn-sign')} onClick={handleLogin}>
+                                    Đăng nhập
                                 </Button>
-                                <div className={cl('separate')}>Hoac dang nhap bang</div>
+                                <div className={cl('separate')}>Hoặc đăng nhập bằng</div>
                                 <div className={cl('social-login')}>
                                     <a href="" className={cl('btn', 'btn-primary', 'btn-google')}>
                                         <FontAwesomeIcon icon={faGoogle} />
@@ -114,9 +135,9 @@ function LoginPage() {
                                     </a>
                                 </div>
                                 <div className={cl('footer', 'text-center')}>
-                                    <span> Ban chua co tai khoan? </span>
+                                    <span>Bạn chưa có tài khoản? </span>
                                     <Link to="/register" relative="path" className={cl('text-success')}>
-                                        Dang ky ngay
+                                        Đăng ký ngay
                                     </Link>
                                 </div>
                             </div>
@@ -124,8 +145,11 @@ function LoginPage() {
                     </div>
                 </div>
                 <div className={cl('right')}>
-                    <div className={cl('brand-text')}>JobLb</div>
-                    <div className={cl('slogan-text')}>Tim viec kho, co JobLd</div>
+                    <div className={cl('text', 'd-flex', 'align-center', 'flex-column')}>
+                        <img src={logo} alt="" style={{ width: '100px', marginBottom: '20px', alignItems: 'center' }} />
+                        <div className={cl('brand-text')}>JobLb</div>
+                        <div className={cl('slogan-text')}>Tìm việc khó, có JobLd</div>
+                    </div>
                 </div>
             </div>
         </div>
