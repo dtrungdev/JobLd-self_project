@@ -1,0 +1,23 @@
+.company-overview {
+    background: linear-gradient(291deg, #189751 0%, #123138 54.89%);
+}
+
+.company-overview_content {
+    padding: 32px 30px;
+}
+
+.img-frame {
+    border-radius: 4px;
+    width: 160px;
+    height: 160px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    .company-logo {
+        display: flex;
+    }
+    .img-fit {
+        max-width: 100%;
+        height: auto;
+    }
+}

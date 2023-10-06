@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Companypage.module.scss';
 
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import CompanyOverview from '../../components/CompanyOverview';
 
 const cl = classNames.bind(styles);
 function CompanyPage() {
@@ -10,8 +10,7 @@ function CompanyPage() {
         <div className={cl('wrapper')}>
             <div className={cl('content')}>
                 <Header />
-                <div className={cl('company-overview')}></div>
-                <div className={cl('company-detail')}></div>
+                <CompanyOverview />
             </div>
         </div>
     );
