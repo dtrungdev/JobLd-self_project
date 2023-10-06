@@ -5,11 +5,10 @@ import RegisterPage from '../pages/RegisterPage';
 
 const publicRoutes = [
     { path: '/', component: Homepage },
-    { path: '/profile', component: Profile },
     { path: '/login', component: LoginPage },
     { path: '/register', component: RegisterPage },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [{ path: '/profile', component: Profile }];
 
 export { publicRoutes, privateRoutes };

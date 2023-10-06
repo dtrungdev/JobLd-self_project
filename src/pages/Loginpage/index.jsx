@@ -6,48 +6,58 @@ import { Button } from 'react-bootstrap';
 import { faFacebook, faGoogle, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
+import { loginUser } from '../../services/userService';
 
 const cl = classNames.bind(styles);
 function LoginPage() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isShowPassword, setIsShowPassword] = useState(false);
     const [isShowAlert, setIsShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
-
-    const defaultObjValueInput = {
-        isValidValueInput: true,
+    const defaultObjectValidInput = {
+        isValidEmail: true,
         isValidPassword: true,
     };
-
-    const [objValueInput, setObjValueInput] = useState(defaultObjValueInput);
-
-    const handleLogin = () => {
+    const [objectValidInput, setObjectValidInput] = useState(defaultObjectValidInput);
+    const isValidInputs = () => {
         if (!email && !password) {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: false });
+            setObjectValidInput({ ...defaultObjectValidInput, isValidEmail: false, isValidPassword: false });
             setIsShowAlert(true);
             setAlertMessage('Vui lòng nhập thông tin.');
-            return;
+            return false;
         }
         if (!email) {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: false });
+            setObjectValidInput({ ...defaultObjectValidInput, isValidEmail: false });
             setIsShowAlert(true);
             setAlertMessage('Vui lòng nhập email.');
-            return;
-        } else {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: true });
-            setIsShowAlert(false);
+            return false;
         }
         if (!password) {
-            setObjValueInput({ ...defaultObjValueInput, isValidPassword: false });
+            setObjectValidInput({ ...defaultObjectValidInput, isValidPassword: false });
             setIsShowAlert(true);
             setAlertMessage('Vui lòng nhập mật khẩu.');
-            return;
-        } else {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: true });
-            setIsShowAlert(false);
+            return false;
+        }
+        setIsShowAlert(false);
+        setObjectValidInput(defaultObjectValidInput);
+        return true;
+    };
+
+    const handleLogin = async () => {
+        let check = isValidInputs();
+        let response = await loginUser(email, password);
+
+        if (response && response.data && +response.data.EC === 0) {
+            navigate('/');
+        }
+
+        if (response && response.data && +response.data.EC !== 0) {
+            setIsShowAlert(true);
+            setAlertMessage(response.data.EM);
         }
     };
 
@@ -58,7 +68,7 @@ function LoginPage() {
                     <div className={cl('auth-inner')}>
                         <div className={cl('auth-form')}>
                             <header className={cl('header')}>
-                                <h2 className={cl('title')}>Chào mừng bạn đã quay trở lại</h2>
+                                <h2 className={cl('title')}>Chào mừng bạn đã quay trở lại với JobLd</h2>
                                 <div className={cl('info')}>
                                     Cùng xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý tưởng
                                 </div>
@@ -69,7 +79,7 @@ function LoginPage() {
                                     <label htmlFor="email">Email</label>
                                     <div
                                         className={
-                                            objValueInput.isValidValueInput
+                                            objectValidInput.isValidEmail
                                                 ? cl('input-group')
                                                 : cl('input-group', 'error')
                                         }
@@ -91,7 +101,7 @@ function LoginPage() {
                                     <label htmlFor="email">Password</label>
                                     <div
                                         className={
-                                            objValueInput.isValidPassword
+                                            objectValidInput.isValidPassword
                                                 ? cl('input-group')
                                                 : cl('input-group', 'error')
                                         }
@@ -110,13 +120,13 @@ function LoginPage() {
                                         <span className={cl('icon-box', 'hide-password')}>
                                             <FontAwesomeIcon
                                                 onClick={() => setIsShowPassword(!isShowPassword)}
-                                                icon={isShowPassword === true ? faEyeSlash : faEye}
+                                                icon={isShowPassword === false ? faEyeSlash : faEye}
                                             />
                                         </span>
                                     </div>
                                 </div>
                                 <div className={cl('forgot-password')}>Quên mật khẩu</div>
-                                <Button variant="primary" className={cl('btn-sign')} onClick={handleLogin}>
+                                <Button variant="primary" className={cl('btn-sign')} onClick={() => handleLogin()}>
                                     Đăng nhập
                                 </Button>
                                 <div className={cl('separate')}>Hoặc đăng nhập bằng</div>

@@ -6,48 +6,97 @@ import { Button } from 'react-bootstrap';
 import { faFacebook, faGoogle, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
+///fecht data from sever
+import { registerNewUser } from '../../services/userService';
 
 const cl = classNames.bind(styles);
 function RegisterPage() {
+    const navigate = useNavigate();
+    const [fullname, setFullname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [isShowPassword, setIsShowPassword] = useState(false);
     const [isShowAlert, setIsShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
-
-    const defaultObjValueInput = {
-        isValidValueInput: true,
+    const defaultObjectValidInput = {
+        isValidFullname: true,
+        isValidEmail: true,
         isValidPassword: true,
+        isValidConfirmPassword: true,
     };
+    const [objectValidInput, setObjectValidInput] = useState(defaultObjectValidInput);
 
-    const [objValueInput, setObjValueInput] = useState(defaultObjValueInput);
-
-    const handleLogin = () => {
-        if (!email && !password) {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: false });
+    //validate Inputs
+    const isValidInputs = () => {
+        if (!fullname && !email && !password) {
+            setObjectValidInput({
+                ...defaultObjectValidInput,
+                isValidFullname: false,
+                isValidEmail: false,
+                isValidPassword: false,
+                isValidConfirmPassword: false,
+            });
             setIsShowAlert(true);
             setAlertMessage('Vui lòng nhập thông tin.');
-            return;
+            return false;
         }
+        if (!fullname) {
+            setObjectValidInput({ ...defaultObjectValidInput, isValidFullname: false });
+            setIsShowAlert(true);
+            setAlertMessage('Vui lòng nhập họ tên.');
+            return false;
+        }
+        //check email format
+        let regularExpression = /\S+@\S+\.\S+/;
         if (!email) {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: false });
+            setObjectValidInput({ ...defaultObjectValidInput, isValidEmail: false });
             setIsShowAlert(true);
             setAlertMessage('Vui lòng nhập email.');
-            return;
-        } else {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: true });
-            setIsShowAlert(false);
+            return false;
+        }
+        if (!regularExpression.test(email)) {
+            setObjectValidInput({ ...defaultObjectValidInput, isValidEmail: false });
+            setIsShowAlert(true);
+            setAlertMessage('Định dạng email không đúng.');
+            return false;
         }
         if (!password) {
-            setObjValueInput({ ...defaultObjValueInput, isValidPassword: false });
+            setObjectValidInput({ ...defaultObjectValidInput, isValidPassword: false });
             setIsShowAlert(true);
             setAlertMessage('Vui lòng nhập mật khẩu.');
-            return;
-        } else {
-            setObjValueInput({ ...defaultObjValueInput, isValidValueInput: true });
-            setIsShowAlert(false);
+            return false;
+        }
+        if (!confirmPassword) {
+            setObjectValidInput({ ...defaultObjectValidInput, isValidConfirmPassword: false });
+            setIsShowAlert(true);
+            setAlertMessage('Vui lòng nhập lại mật khẩu.');
+            return false;
+        }
+        if (password != confirmPassword) {
+            setObjectValidInput({ ...defaultObjectValidInput, isValidPassword: false, isValidConfirmPassword: false });
+            setIsShowAlert(true);
+            setAlertMessage('Mật khẩu không trùng khớp!');
+            return false;
+        }
+        setIsShowAlert(false);
+        setObjectValidInput(defaultObjectValidInput);
+        return true;
+    };
+
+    const handleRegister = async () => {
+        let check = isValidInputs();
+        if (check === true) {
+            let response = await registerNewUser(fullname, email, password);
+            let serverData = response.data;
+            if (+serverData.EC === 0) {
+                navigate('/');
+            } else {
+                setIsShowAlert(true);
+                setAlertMessage(serverData.EM);
+            }
         }
     };
 
@@ -63,13 +112,15 @@ function RegisterPage() {
                                     Cùng xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý tưởng
                                 </div>
                             </header>
-                            <div className={isShowAlert ? cl('alert-message') : cl('hidden')}>{alertMessage}</div>
+                            <div className={isShowAlert === true ? cl('alert-message') : cl('hidden')}>
+                                {alertMessage}
+                            </div>
                             <div className={cl('register')}>
                                 <div className={cl('form-group')}>
                                     <label htmlFor="fullname">Họ và tên</label>
                                     <div
                                         className={
-                                            objValueInput.isValidValueInput
+                                            objectValidInput.isValidFullname
                                                 ? cl('input-group')
                                                 : cl('input-group', 'error')
                                         }
@@ -82,8 +133,8 @@ function RegisterPage() {
                                             name=""
                                             id="fullname"
                                             placeholder="Nhập họ tên"
-                                            value={email}
-                                            onChange={(event) => setEmail(event.target.value)}
+                                            value={fullname}
+                                            onChange={(event) => setFullname(event.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -91,7 +142,7 @@ function RegisterPage() {
                                     <label htmlFor="email">Email</label>
                                     <div
                                         className={
-                                            objValueInput.isValidValueInput
+                                            objectValidInput.isValidEmail
                                                 ? cl('input-group')
                                                 : cl('input-group', 'error')
                                         }
@@ -114,7 +165,7 @@ function RegisterPage() {
                                     <label htmlFor="password">Mật khẩu</label>
                                     <div
                                         className={
-                                            objValueInput.isValidPassword
+                                            objectValidInput.isValidPassword
                                                 ? cl('input-group')
                                                 : cl('input-group', 'error')
                                         }
@@ -133,7 +184,7 @@ function RegisterPage() {
                                         <span className={cl('icon-box', 'hide-password')}>
                                             <FontAwesomeIcon
                                                 onClick={() => setIsShowPassword(!isShowPassword)}
-                                                icon={isShowPassword === true ? faEyeSlash : faEye}
+                                                icon={isShowPassword === false ? faEyeSlash : faEye}
                                             />
                                         </span>
                                     </div>
@@ -142,7 +193,7 @@ function RegisterPage() {
                                     <label htmlFor="password">Xác nhận mật khẩu</label>
                                     <div
                                         className={
-                                            objValueInput.isValidPassword
+                                            objectValidInput.isValidConfirmPassword
                                                 ? cl('input-group')
                                                 : cl('input-group', 'error')
                                         }
@@ -155,19 +206,19 @@ function RegisterPage() {
                                             name=""
                                             id="password"
                                             placeholder="Nhập lại mật khẩu"
-                                            value={password}
-                                            onChange={(event) => setPassword(event.target.value)}
+                                            value={confirmPassword}
+                                            onChange={(event) => setConfirmPassword(event.target.value)}
                                         />
                                         <span className={cl('icon-box', 'hide-password')}>
                                             <FontAwesomeIcon
                                                 onClick={() => setIsShowPassword(!isShowPassword)}
-                                                icon={isShowPassword === true ? faEyeSlash : faEye}
+                                                icon={isShowPassword === false ? faEyeSlash : faEye}
                                             />
                                         </span>
                                     </div>
                                 </div>
 
-                                <Button variant="primary" className={cl('btn-sign')} onClick={handleLogin}>
+                                <Button variant="primary" className={cl('btn-sign')} onClick={() => handleRegister()}>
                                     Đăng ký
                                 </Button>
                                 <div className={cl('separate')}>Hoặc đăng nhập bằng</div>
