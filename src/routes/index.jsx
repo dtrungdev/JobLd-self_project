@@ -1,10 +1,12 @@
-import Homepage from '../pages/Homepage';
+import HomePage from '../pages/Homepage';
+import CompanyPage from '../pages/CompanyPage';
 import Profile from '../pages/Profile';
 import LoginPage from '../pages/Loginpage';
 import RegisterPage from '../pages/RegisterPage';
 
 const publicRoutes = [
-    { path: '/', component: Homepage },
+    { path: '/', component: HomePage },
+    { path: '/company', component: CompanyPage },
     { path: '/login', component: LoginPage },
     { path: '/register', component: RegisterPage },
 ];

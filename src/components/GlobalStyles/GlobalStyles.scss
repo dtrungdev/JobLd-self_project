@@ -34,3 +34,26 @@ ul {
 .btn {
     border-radius: 4px;
 }
+
+.direct-page {
+    align-items: center;
+    aspect-ratio: 1/1;
+    border: 1px solid #00b14f;
+    border-radius: 50%;
+    color: #00b14f !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 32px;
+}
+
+.active {
+    background-color: var(--primary-color) !important;
+    color: #fff;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

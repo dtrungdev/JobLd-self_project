@@ -4,14 +4,16 @@ import styles from './Homepage.module.scss';
 import HomeIntroduce from '../../components/HomeIntroduce';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import ListJob from '../../components/ListJob';
 
 const cl = classNames.bind(styles);
-function Home() {
+function HomePage() {
     return (
         <div className={cl('wrapper')}>
             <div className={cl('content')}>
                 <Header />
                 <SearchJob />
+                <ListJob />
                 <HomeIntroduce />
                 <Footer />
             </div>
@@ -19,4 +21,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default HomePage;
