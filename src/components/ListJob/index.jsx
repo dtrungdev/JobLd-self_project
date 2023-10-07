@@ -4,6 +4,7 @@ import styles from './ListJob.module.scss';
 import classNames from 'classnames/bind';
 import { faChevronLeft, faChevronRight, faFilter } from '@fortawesome/free-solid-svg-icons';
 import ListJobItem from './ListJobItem';
+import Pagination from '../Pagination';
 
 const cl = classNames.bind(styles);
 
@@ -66,6 +67,13 @@ function ListJob() {
                         </div>
                     </div>
                 </div>
+                <Pagination
+                    className="pagination-bar"
+                    currentPage={1}
+                    totalCount={40}
+                    pageSize={10}
+                    onPageChange={(page) => setCurrentPage(page)}
+                />
             </div>
         </section>
     );

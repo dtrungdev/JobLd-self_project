@@ -22,7 +22,7 @@ function ListJobItem() {
                     <div className={cl('col-title', 'text-ellipsis')}>
                         <h3>
                             <a href="" className={cl('job-title', 'text-ellipsis')}>
-                                <strong>Nhân viên tư vấn tuyển sinh sdgdshst</strong>
+                                Nhân viên tư vấn tuyển sinh sdgdshst
                             </a>
                         </h3>
                         <a href="" className={cl('job-descript', 'text-ellipsis')}>

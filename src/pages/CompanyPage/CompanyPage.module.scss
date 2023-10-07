@@ -1,0 +1,74 @@
+@media screen and (max-width: 991.98px) {
+    .search-company {
+        width: 100%;
+        max-width: 100% !important;
+    }
+}
+
+.wrapper {
+    background: transparent linear-gradient(6deg, #fff, #c4ffdd 100%, rgba(195, 255, 221, 0.702) 0) 0 0 no-repeat
+        padding-box;
+    margin-bottom: 0;
+    min-height: 273px;
+}
+
+.content {
+    font-family: 'Lexend', sans-serif;
+    padding: 10px 0;
+}
+
+.search-company {
+    padding: 40px 10px;
+    max-width: 60%;
+    width: 100%;
+    .search-title {
+        font-size: 2.4rem;
+        color: var(--primary-color);
+        margin-bottom: 17px;
+    }
+    .search-text {
+        font-size: 1.6rem;
+        color: var(--text-color);
+        margin-bottom: 37px;
+    }
+}
+
+.search-input {
+    font-size: 1.6rem;
+    padding: 10px 5px;
+    border-radius: 4px;
+    box-shadow: 0px 6px 32px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    .icon {
+        font-size: 1.8rem;
+        padding: 5px 8px;
+    }
+    .input-search {
+        flex: 1;
+        border: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    .btn-search {
+        padding: 4px 8px;
+        font-size: 1.6rem;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        &:hover {
+            background-color: #05b64f;
+            border-color: #039d43;
+        }
+    }
+}
+.box-img {
+    max-width: 40%;
+    width: 240px;
+    margin-left: auto;
+    .img-responsive {
+        width: 100%;
+        height: auto;
+    }
+}

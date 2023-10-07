@@ -3,12 +3,12 @@
     font-family: 'Lexend', sans-serif;
     .list-job_item {
         background-color: #fff;
+
         border-radius: 4px;
-        margin: 10px 0;
-        padding: 16px 18px;
+        margin-bottom: 16px;
+        padding: 12px;
         &:hover {
             background: #f6f6f6;
-            outline: 1px solid #d3d5d9;
         }
     }
     &:hover {
@@ -17,23 +17,25 @@
         }
     }
 }
-
-.header {
-    display: flex;
-    align-items: center;
-    .col-title {
-        min-height: 44px;
-        padding-left: 12px;
-    }
+.left {
+    margin-right: 16px;
+}
+.right {
+    flex: 1;
+    height: 100%;
+    gap: 12px;
 }
 
 .avatar {
-    width: 48px;
-    height: 48px;
+    width: 100px;
+    background-color: #fff;
+    border: 1px solid #e9eaec;
+    border-radius: 8px;
     .company-logo {
         align-items: center;
         background: #fff;
         border-radius: 5px;
+        aspect-ratio: 1/1;
         display: flex;
         height: 100%;
         justify-content: center;
@@ -46,14 +48,24 @@
     .img-responsive {
         width: 100%;
         height: auto;
+        object-fit: contain;
     }
 }
-
+.title {
+    display: flex;
+    justify-content: space-between;
+    .col-salary {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--primary-color);
+        padding-left: 10px;
+    }
+}
 .col-title {
     flex: 1;
     .job-title {
         display: block;
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         font-weight: 600;
         color: var(--text-color);
         line-height: 2rem;
@@ -73,12 +85,14 @@
     align-items: center;
 }
 
-.col-job-info {
-    .salary {
-        margin-right: 3px;
-    }
-    .salary,
+.info {
+    .job-expire,
     .address {
+        margin-right: 4px;
+    }
+    .job-expire,
+    .address,
+    .update {
         background: #f4f5f5;
         border-radius: 4px;
         color: #000000;
@@ -90,10 +104,31 @@
     }
 }
 
-.col-like {
+.action {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    .btn-apply {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+        font-size: 1.4rem;
+        line-height: 2rem;
+        white-space: nowrap;
+        padding: 6px 16px;
+        &:hover {
+            background-color: #0aa934;
+            border-color: #0aa934;
+        }
+    }
+}
+
+.like {
     .save-job {
-        color: #8b8b8b;
-        font-size: 1.6rem;
+        color: var(--primary-color);
+        padding: 3px 8px;
+        border-radius: 4px;
+        background-color: #deffe2;
+        font-size: 1.8rem;
         &:hover {
             color: var(--primary-color);
         }

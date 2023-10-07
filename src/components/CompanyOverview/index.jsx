@@ -9,8 +9,8 @@ function CompanyOverview() {
     return (
         <div className={cl('wrapper')}>
             <div className={cl('content', 'container')}>
-                <div className={cl('row', 'justify-content-between')}>
-                    <div className={cl('col-left', 'col-md-8')}>
+                <div className={cl('row')}>
+                    <div className={cl('col-left', 'col-lg-8')}>
                         <div className={cl('img-frame')}>
                             <div className="company-logo">
                                 <img
@@ -42,7 +42,7 @@ function CompanyOverview() {
                             </div>
                         </div>
                     </div>
-                    <div className={cl('col-md-4')}>
+                    <div className={cl('col-lg-4')}>
                         <div className={cl('d-flex', 'col-right')}>
                             <div className={cl('d-flex', 'align-items-center')}>
                                 <span className={cl('vote')}>4.8</span>
