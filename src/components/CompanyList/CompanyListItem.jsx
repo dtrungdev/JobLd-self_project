@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './CompanyListItem.module.scss';
+import { Link } from 'react-router-dom';
 
 const cl = classNames.bind(styles);
 
@@ -8,13 +9,22 @@ function CompanyListItem() {
         <div className={cl('wrapper', 'col-lg-4', 'col-sm-6')}>
             <div className={cl('content')}>
                 <div className={cl('company-banner')}>
-                    <a href="">
+                    <Link className={cl('img-frame')}>
                         <img
                             src="https://static.topcv.vn/company_covers/cong-ty-tnhh-buymed-f95dc7cac15325af4367f3c8cf5ee0f6-5ff7dd182c9d8.jpg"
                             alt=""
                             className={cl('img-banner')}
                         />
-                    </a>
+                    </Link>
+                    <div className={cl('company-logo')}>
+                        <Link className={cl('link')}>
+                            <img
+                                src="https://static.topcv.vn/company_logos/cong-ty-tnhh-transcosmos-viet-nam-61c9331426cc8.jpg"
+                                alt=""
+                                className={cl('logo')}
+                            />
+                        </Link>
+                    </div>
                 </div>
                 <div className={cl('company-info')}>
                     <h3 className={cl('title')}>CÔNG TY TNHH BUYMED</h3>
@@ -25,6 +35,7 @@ function CompanyListItem() {
                         với đam mê ứng dụng công nghệ 4.0 vào nền tảng vững vàng "
                     </p>
                 </div>
+                <div className={cl('overlay')}></div>
             </div>
         </div>
     );

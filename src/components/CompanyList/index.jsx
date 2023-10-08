@@ -12,6 +12,8 @@ function CompanyList() {
                     <CompanyListItem />
                     <CompanyListItem />
                     <CompanyListItem />
+                    <CompanyListItem />
+                    <CompanyListItem />
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './LoginPage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faEyeSlash, faShield, faUser, faVoicemail } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faEyeSlash, faShield } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import { faFacebook, faGoogle, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';

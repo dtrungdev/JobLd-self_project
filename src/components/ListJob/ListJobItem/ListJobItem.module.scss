@@ -97,5 +97,9 @@
         &:hover {
             color: var(--primary-color);
         }
+        &:active {
+            border-color: transparent !important;
+            color: var(--primary-color);
+        }
     }
 }

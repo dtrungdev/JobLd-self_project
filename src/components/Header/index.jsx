@@ -24,16 +24,16 @@ function Header() {
                 <div className={cl('nav-left')}>
                     <ul>
                         <li className={cl('nav-left_item')}>
-                            <a href="">Việc làm</a>
+                            <Link to="/job">Việc làm</Link>
                         </li>
                         <li className={cl('nav-left_item')}>
-                            <a href="">Hồ sơ & CV</a>
+                            <Link to="/cv">Hồ sơ & CV</Link>
                         </li>
                         <li className={cl('nav-left_item')}>
-                            <a href="">Công ty</a>
+                            <Link to="/company">Công ty</Link>
                         </li>
                         <li className={cl('nav-left_item')}>
-                            <a href="">Blog</a>
+                            <Link to="/blog">Blog</Link>
                         </li>
                     </ul>
                 </div>

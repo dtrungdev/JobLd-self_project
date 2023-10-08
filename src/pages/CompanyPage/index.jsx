@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './CompanyPage.module.scss';
 import { Button } from 'react-bootstrap';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import CompanyList from '../../components/CompanyList';
@@ -36,6 +37,7 @@ function CompanyPage() {
                 </div>
             </div>
             <CompanyList />
+            <Footer />
         </main>
     );
 }
