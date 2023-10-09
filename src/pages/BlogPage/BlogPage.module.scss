@@ -15,12 +15,27 @@
 
 .div {
     margin-top: 50px;
-    height: 50vh;
+
     text-align: center;
 
     svg {
         animation: spin 3.5s linear infinite;
         font-size: 8rem;
+    }
+}
+
+.go-home {
+    display: block;
+
+    padding: 40px;
+    font-size: 1.6rem;
+    font-family: 'Lexend', sans-serif;
+    color: var(--text-color);
+    text-decoration: underline !important;
+    text-align: center;
+    &:hover {
+        color: var(--primary-color);
+        text-decoration: dashed !important;
     }
 }
 @keyframes spin {

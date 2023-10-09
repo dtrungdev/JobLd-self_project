@@ -13,6 +13,18 @@ const cl = classNames.bind(styles);
 
 function SearchJob() {
     const [searchResult, setSearchResult] = useState([]);
+    const arrText = ['Việc làm mới', 'Công ty phù hợp', 'Định hướng nghề nghiệp', 'Phúc lợi tốt', 'CV ấn tượng'];
+
+    const [index, setIndex] = useState(0);
+    useEffect(() => {
+        if (index > arrText.length - 1) {
+            setIndex(0);
+        }
+        setTimeout(() => {
+            setIndex(index + 1);
+        }, 1800);
+    }, [index]);
+
     useEffect(() => {
         setTimeout(() => {
             setSearchResult([]);
@@ -23,7 +35,7 @@ function SearchJob() {
         <section className={cl('wrapper')}>
             <div className={cl('content', 'container')}>
                 <h2 className={cl('wellcome-text')}>
-                    <span className={cl('text-highlight')}>Việc làm mới</span> dành cho bạn.
+                    <span className={cl('text-highlight')}>{arrText[index]}</span> dành cho bạn.
                 </h2>
                 <div className={cl('box-search')}>
                     <div className={cl('search-city')}>

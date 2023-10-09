@@ -1,6 +1,8 @@
 import classNames from 'classnames/bind';
 import styles from './ReadMore.module.scss';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const cl = classNames.bind(styles);
 
@@ -12,10 +14,12 @@ function ReadMore({ children }) {
     };
 
     return (
-        <p className="text">
-            {isReadMore ? text.slice(0, 150) : text}
-            <span onClick={toggleReadMore} className="read-or-hide">
-                {isReadMore ? '...read more' : ' show less'}
+        <p className={cl('text')}>
+            {isReadMore ? text.slice(0, 250) : text}
+
+            <span onClick={toggleReadMore} className={cl('read-or-hide')}>
+                {isReadMore ? 'Xem thêm' : 'Thu gọn'}{' '}
+                <FontAwesomeIcon icon={isReadMore ? faChevronDown : faChevronUp} />
             </span>
         </p>
     );

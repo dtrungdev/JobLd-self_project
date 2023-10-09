@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './ListJobItem.module.scss';
 import classNames from 'classnames/bind';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const cl = classNames.bind(styles);
 
@@ -41,7 +41,7 @@ function ListJobItem() {
                     </div>
                     <div className={cl('col-like')}>
                         <button className={cl('save-job', 'btn')}>
-                            <FontAwesomeIcon icon={faHeart} />
+                            <FontAwesomeIcon icon={faHeart} className={cl('icon')} />
                         </button>
                     </div>
                 </div>

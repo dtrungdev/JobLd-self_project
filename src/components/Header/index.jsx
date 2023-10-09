@@ -59,12 +59,24 @@ function Header() {
                         <Offcanvas.Title className={cl('offcanvas-title')}>JobLd</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body className={cl('offcanvas-body')}>
-                        <div className={cl('body-item')}>Đăng ký tài khoản mới</div>
-                        <div className={cl('body-item')}>Đăng nhập</div>
-                        <div className={cl('body-item')}>Việc làm</div>
-                        <div className={cl('body-item')}>Hồ sơ và CV</div>
-                        <div className={cl('body-item')}>Công ty</div>
-                        <div className={cl('body-item')}>Blog</div>
+                        <Link to="/register" className={cl('body-item')}>
+                            Đăng ký tài khoản mới
+                        </Link>
+                        <Link to="/login" className={cl('body-item')}>
+                            Đăng nhập
+                        </Link>
+                        <Link to="/job" className={cl('body-item')}>
+                            Việc làm
+                        </Link>
+                        <Link to="/cv" className={cl('body-item')}>
+                            Hồ sơ và CV
+                        </Link>
+                        <Link to="/company" className={cl('body-item')}>
+                            Công ty
+                        </Link>
+                        <Link to="/blog" className={cl('body-item')}>
+                            Blog
+                        </Link>
                     </Offcanvas.Body>
                 </Offcanvas>
             </div>

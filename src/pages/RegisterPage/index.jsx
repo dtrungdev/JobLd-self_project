@@ -241,6 +241,11 @@ function RegisterPage() {
                                     <Link to="/login" relative="path" className={cl('text-success')}>
                                         Đăng nhập ngay
                                     </Link>
+                                    <div className={cl('block')}>
+                                        <Link to={'/'} className={cl('go-home')}>
+                                            Về trang chủ
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

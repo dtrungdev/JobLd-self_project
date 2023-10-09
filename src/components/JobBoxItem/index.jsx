@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styles from './JobAvailable.module.scss';
+import styles from './JobBoxItem.module.scss';
 import classNames from 'classnames/bind';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { Button } from 'react-bootstrap';
 
 const cl = classNames.bind(styles);
 
-function JobAvailable() {
+function JobBoxItem() {
     return (
         <div className={cl('wrapper')}>
             <div className={cl('list-job_item')}>
@@ -28,7 +28,7 @@ function JobAvailable() {
                             <div className={cl('col-title', 'text-ellipsis')}>
                                 <h3>
                                     <a href="" className={cl('job-title')}>
-                                        Nhân viên tư vấn tuyển sinh sdgdshst
+                                        Nhân viên tư vấn tuyển sinh sdgdshstdfnfgnmgh,khflyikluyliyu;lo;ioudfshfsghgf
                                     </a>
                                 </h3>
                                 <a href="" className={cl('job-descript', 'text-ellipsis')}>
@@ -69,4 +69,4 @@ function JobAvailable() {
     );
 }
 
-export default JobAvailable;
+export default JobBoxItem;

@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './CVPage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const cl = classNames.bind(styles);
 
@@ -16,6 +17,10 @@ function CVPage() {
             <div className={cl('div')}>
                 <FontAwesomeIcon icon={faGear} />
             </div>
+
+            <Link to={'/'} className={cl('go-home')}>
+                Về trang chủ
+            </Link>
         </div>
     );
 }

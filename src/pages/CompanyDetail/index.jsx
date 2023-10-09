@@ -7,6 +7,7 @@ import CompanyIntroduce from '../../components/CompanyIntroduce';
 import CompanyContact from '../../components/CompanyContact';
 import CompanyBenefit from '../../components/CompanyBenefit';
 import CompanyJob from '../../components/CompanyJobs';
+import CompanySize from '../../components/CompanySize';
 
 const cl = classNames.bind(styles);
 function CompanyDetail() {
@@ -24,6 +25,7 @@ function CompanyDetail() {
                                     <div className={cl('company-review')}>Đánh giá</div>
                                 </div>
                                 <div className=""></div>
+                                <CompanySize />
                                 <CompanyIntroduce />
                                 <CompanyBenefit />
                                 <CompanyJob />

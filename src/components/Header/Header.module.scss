@@ -24,6 +24,15 @@
         display: none !important;
     }
 }
+
+@media (min-width: 1400px) {
+    .wrapper {
+        .inner {
+            margin: 0 auto !important;
+        }
+    }
+}
+
 .wrapper {
     position: sticky;
     z-index: 999;
@@ -35,6 +44,7 @@
 }
 
 .inner {
+    max-width: 1800px;
     height: 100%;
     display: flex;
     padding: 0 30px;
@@ -137,10 +147,12 @@ ul {
     font-family: 'Lexend', sans-serif;
     font-size: 1.4rem;
     .body-item {
+        font-size: 1.6rem;
         margin-bottom: 10px;
         cursor: pointer;
         background-color: #fff;
         padding: 14px 16px;
         border-radius: 6px;
+        color: var(--primary-color);
     }
 }
