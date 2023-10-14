@@ -4,11 +4,13 @@ import styles from './ListJob.module.scss';
 import classNames from 'classnames/bind';
 import { faChevronLeft, faChevronRight, faFilter } from '@fortawesome/free-solid-svg-icons';
 import ListJobItem from './ListJobItem';
-import Pagination from '../Pagination';
+import Pagination from '../../components/Pagination';
+import { useState } from 'react';
 
 const cl = classNames.bind(styles);
 
 function ListJob() {
+    const [currentPage, setCurrentPage] = useState(1);
     return (
         <section className={cl('wrapper')}>
             <div className={cl('content', 'container')}>
@@ -16,12 +18,11 @@ function ListJob() {
                     <h2 className={cl('header-title')}>Việc làm tốt nhất</h2>
                     <div className={cl('header-tool')}>
                         <span className={cl('see-more')}>Xem tất cả</span>
-                        <span className={cl('direct-page')}>
-                            <FontAwesomeIcon icon={faChevronLeft} />
-                        </span>
-                        <span className={cl('direct-page')}>
-                            <FontAwesomeIcon icon={faChevronRight} />
-                        </span>
+                        <Pagination
+                            currentPage={currentPage}
+                            pageCount={20}
+                            onPageChange={(page) => setCurrentPage(page)}
+                        />
                     </div>
                 </div>
                 <div className={cl('box-filter')}>
@@ -63,17 +64,16 @@ function ListJob() {
                                 <ListJobItem />
                                 <ListJobItem />
                                 <ListJobItem />
+                                <ListJobItem />
+                                <ListJobItem />
+                                <ListJobItem />
+                                <ListJobItem />
+                                <ListJobItem />
+                                <ListJobItem />
                             </div>
                         </div>
                     </div>
                 </div>
-                <Pagination
-                    className="pagination-bar"
-                    currentPage={1}
-                    totalCount={40}
-                    pageSize={10}
-                    onPageChange={(page) => setCurrentPage(page)}
-                />
             </div>
         </section>
     );

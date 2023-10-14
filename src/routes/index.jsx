@@ -7,6 +7,7 @@ import RegisterPage from '../pages/RegisterPage';
 import CompanyDetail from '../pages/CompanyDetail';
 import JobPage from '../pages/JobPage';
 import JobDetail from '../pages/JobDetail';
+import ProfilePage from '../pages/ProfilePage';
 
 const publicRoutes = [
     { path: '/', component: HomePage },
@@ -24,6 +25,6 @@ const publicRoutes = [
     { path: 'blog', component: BlogPage },
 ];
 
-const privateRoutes = [{ path: '/profile' }];
+const privateRoutes = [{ path: '/profile', component: ProfilePage }];
 
 export { publicRoutes, privateRoutes };

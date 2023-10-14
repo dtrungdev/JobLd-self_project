@@ -1,66 +1,31 @@
 import classnames from 'classnames/bind';
-import { usePagination, DOTS } from './usePagination';
 import styles from './Pagination.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const cl = classnames.bind(styles);
-const Pagination = (props) => {
-    const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, className } = props;
-
-    const paginationRange = usePagination({
-        currentPage,
-        totalCount,
-        siblingCount,
-        pageSize,
-    });
-
-    if (currentPage === 0 || paginationRange.length < 2) {
-        return null;
-    }
-
-    const onNext = () => {
-        onPageChange(currentPage + 1);
+const Pagination = ({ currentPage, pageCount, onPageChange }) => {
+    const handlePageChange = (page) => {
+        if (onPageChange) {
+            onPageChange(page);
+        }
     };
-
-    const onPrevious = () => {
-        onPageChange(currentPage - 1);
-    };
-
-    let lastPage = paginationRange[paginationRange.length - 1];
     return (
-        <ul className={cl('pagination-container', { [className]: className })}>
-            <li
-                className={cl('pagination-item', {
-                    disabled: currentPage === 1,
-                })}
-                onClick={onPrevious}
+        <>
+            <span
+                className={+currentPage <= 1 ? cl('btn-arrow--disable') : cl('btn-arrow')}
+                onClick={() => handlePageChange(currentPage - 1)}
             >
-                <div>prev</div>
-            </li>
-            {paginationRange.map((pageNumber) => {
-                if (pageNumber === DOTS) {
-                    return <li className={cl('pagination-item dots')}>&#8230;</li>;
-                }
+                <FontAwesomeIcon icon={faChevronLeft} className={cl('icon')} />
+            </span>
 
-                return (
-                    <li
-                        className={cl('pagination-item', {
-                            selected: pageNumber === currentPage,
-                        })}
-                        onClick={() => onPageChange(pageNumber)}
-                    >
-                        {pageNumber}
-                    </li>
-                );
-            })}
-            <li
-                className={cl('pagination-item', {
-                    disabled: currentPage === lastPage,
-                })}
-                onClick={onNext}
+            <span
+                className={+currentPage >= pageCount ? cl('btn-arrow--disable') : cl('btn-arrow')}
+                onClick={() => handlePageChange(currentPage + 1)}
             >
-                <div>next</div>
-            </li>
-        </ul>
+                <FontAwesomeIcon icon={faChevronRight} className={cl('icon')} />
+            </span>
+        </>
     );
 };
 

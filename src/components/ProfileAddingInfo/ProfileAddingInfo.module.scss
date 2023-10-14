@@ -1,0 +1,64 @@
+.content {
+    font-size: 1.6rem;
+    font-family: 'Lexend', sans-serif;
+    .box {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+        padding: 24px 24px 32px;
+        margin: 24px;
+        border-radius: 8px;
+    }
+    .absoluted-icon {
+        cursor: pointer;
+        padding: 6px;
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        position: absolute;
+        top: 4px;
+        right: 4px;
+    }
+    .info {
+        margin-left: 32px;
+        flex: 1;
+    }
+}
+
+.card {
+    position: relative;
+    .strong-text {
+        font-weight: 600;
+        font-size: 2.2rem;
+    }
+    .normal-text {
+        color: #a6a6a6;
+        display: block;
+        margin-top: 10px;
+        max-width: 540px;
+    }
+}
+.avatar {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.28);
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    overflow: hidden;
+    .avatar-responsive {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+.info {
+    .contact-name {
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+}
+.info-item {
+    color: #1c1c1c;
+    text-overflow: ellipsis;
+    .info-icon {
+        font-size: 1.5rem;
+        margin-right: 6px;
+    }
+}
