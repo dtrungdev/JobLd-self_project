@@ -5,19 +5,23 @@ import HomeIntroduce from '../../components/HomeIntroduce';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import ListJob from '../../components/ListJob';
+import TopCompany from '../../components/TopCompany';
 
 const cl = classNames.bind(styles);
 function HomePage() {
     return (
-        <div className={cl('wrapper')}>
-            <div className={cl('content')}>
-                <Header />
-                <SearchJob />
-                <ListJob />
-                <HomeIntroduce />
-                <Footer />
+        <>
+            <Header />
+            <div className={cl('wrapper')}>
+                <div className={cl('content')}>
+                    <SearchJob />
+                    <ListJob />
+                    <TopCompany />
+                    <HomeIntroduce />
+                    <Footer />
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

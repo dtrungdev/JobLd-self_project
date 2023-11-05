@@ -40,6 +40,7 @@
     background-color: #fff;
     display: flex;
     align-items: center;
+    position: relative;
     .icon {
         font-size: 1.8rem;
         padding: 5px 8px;
@@ -60,6 +61,13 @@
             background-color: #05b64f;
             border-color: #039d43;
         }
+    }
+    .search-result {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        left: 0;
+        z-index: 1;
     }
 }
 .box-img {

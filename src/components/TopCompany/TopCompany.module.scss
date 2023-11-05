@@ -1,0 +1,44 @@
+.wrapper {
+    padding-top: 24px;
+    background-color: #fff;
+}
+
+.content {
+    font-family: 'Lexend', sans-serif;
+    overflow: hidden;
+    .top-company_title {
+        font-size: 2.1rem;
+        font-weight: 600;
+    }
+    .top-company_slider {
+        width: 9600px;
+        overflow: hidden;
+    }
+}
+
+.top-company_item {
+    height: 202px;
+    width: 220px;
+    padding: 16px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #d2d2d2;
+    border-radius: 8px;
+    float: left;
+
+    .company-img {
+        height: 120px;
+        width: auto;
+    }
+    .company-name {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+    }
+    &:hover {
+        border: 1px solid #33c172;
+        box-shadow: 0 10px 30px rgba(14, 166, 59, 0.2);
+    }
+}

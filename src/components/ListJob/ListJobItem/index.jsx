@@ -5,38 +5,39 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const cl = classNames.bind(styles);
 
-function ListJobItem() {
+function ListJobItem({ data }) {
+    console.log(data);
     return (
         <div className={cl('wrapper', 'col-lg-4', 'col-sm-6')}>
             <div className={cl('list-job_item')}>
                 <div className={cl('header')}>
                     <div className={cl('avatar')}>
                         <div className={cl('company-logo')}>
-                            <img
-                                src="https://cdn-new.topcv.vn/unsafe/200x/filters:format(webp)/https://static.topcv.vn/company_logos/cong-ty-co-phan-truyen-thong-va-cong-nghe-dai-viet-64118b52c0f80.jpg"
-                                alt=""
-                                className={cl('img-responsive')}
-                            />
+                            <img src={data.Company.logo} alt="" className={cl('img-responsive')} />
                         </div>
                     </div>
                     <div className={cl('col-title', 'text-ellipsis')}>
                         <h3>
                             <a href="" className={cl('job-title', 'text-ellipsis')}>
-                                Nhân viên tư vấn tuyển sinh sdgdshst
+                                {data.title}
                             </a>
                         </h3>
                         <a href="" className={cl('job-descript', 'text-ellipsis')}>
-                            Công ty TNHH MTV KKK rehgrtdhjsdgfdsghfdh
+                            {data.Company.name}
                         </a>
                     </div>
                 </div>
                 <div className={cl('footer')}>
                     <div className={cl('col-job-info')}>
                         <div className={cl('salary')}>
-                            <span className={cl('text-ellipsis')}>Trên 10 triệu</span>
+                            <span className={cl('text-ellipsis')}>{data.salary} triệu</span>
                         </div>
                         <div className={cl('address')}>
-                            <span className={cl('text-ellipsis')}>Hà Nội, Hồ Chí Minh</span>
+                            {data.Locations && data.Locations.length < 0 ? (
+                                <span className={cl('text-ellipsis')}></span>
+                            ) : (
+                                <></>
+                            )}
                         </div>
                     </div>
                     <div className={cl('col-like')}>

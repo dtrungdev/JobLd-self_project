@@ -10,7 +10,7 @@ function JobBoxItem() {
     return (
         <div className={cl('wrapper')}>
             <div className={cl('list-job_item')}>
-                <div className={cl('d-flex', 'align-items-center')}>
+                <div className={cl('d-flex', 'align-items-center', 'flex-column', 'flex-md-row')}>
                     <div className={cl('left')}>
                         <div className={cl('avatar')}>
                             <div className={cl('company-logo')}>
@@ -28,7 +28,7 @@ function JobBoxItem() {
                             <div className={cl('col-title', 'text-ellipsis')}>
                                 <h3>
                                     <a href="" className={cl('job-title')}>
-                                        Nhân viên tư vấn tuyển sinh sdgdshstdfnfgnmgh,khflyikluyliyu;lo;ioudfshfsghgf
+                                        Nhân viên tư vấn tuyển sinh sdgdshst
                                     </a>
                                 </h3>
                                 <a href="" className={cl('job-descript', 'text-ellipsis')}>

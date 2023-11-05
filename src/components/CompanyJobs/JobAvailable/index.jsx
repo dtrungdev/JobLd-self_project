@@ -10,7 +10,7 @@ function JobAvailable() {
     return (
         <div className={cl('wrapper')}>
             <div className={cl('list-job_item')}>
-                <div className={cl('d-flex', 'align-items-center')}>
+                <div className={cl('d-flex', 'align-items-center', 'flex-column', 'flex-md-row')}>
                     <div className={cl('left')}>
                         <div className={cl('avatar')}>
                             <div className={cl('company-logo')}>

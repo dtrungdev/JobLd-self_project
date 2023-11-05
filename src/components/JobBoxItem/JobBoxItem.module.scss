@@ -1,15 +1,59 @@
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0 !important;
+    }
+    .list-job_item {
+        border: 1px solid #d8d8d8 !important;
+        background-color: #fff !important;
+        margin-bottom: 24px !important;
+        padding: 12px !important;
+        width: 100% !important;
+    }
+    .avatar {
+        border: 1px solid #c3c3c3 !important;
+    }
+    .title {
+        flex-direction: column !important;
+        .col-title {
+            padding: 8px 0;
+        }
+        .job-title {
+            margin-bottom: 8px;
+        }
+        .job-descript {
+            white-space: wrap !important;
+        }
+    }
+    .action {
+        align-items: end !important;
+    }
+    .col-salary {
+        margin: 8px 0;
+        text-align: left !important;
+    }
+
+    .title {
+        .col-title {
+            white-space: wrap !important;
+        }
+    }
+    .right {
+        max-width: 100%;
+    }
+}
+
 .wrapper {
     padding: 0 10px;
     font-family: 'Lexend', sans-serif;
     .list-job_item {
-        cursor: pointer;
-        background-color: #effff5;
+        background-color: #fcfefd;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 32px;
+        border: 1px solid #e0e0e0;
         border-radius: 4px;
         margin-bottom: 16px;
         padding: 12px;
-        border: 1px solid #00db5f;
         &:hover {
-            border: 1px solid #00ac4d;
+            background: #f5fff7;
         }
     }
     &:hover {
@@ -33,6 +77,7 @@
     border: 1px solid #e9eaec;
     border-radius: 8px;
     .company-logo {
+        overflow: hidden;
         align-items: center;
         background: #fff;
         border-radius: 5px;
@@ -55,10 +100,8 @@
 .title {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     .col-salary {
         text-align: end;
-        min-width: 150px;
         font-size: 1.5rem;
         font-weight: 500;
         color: var(--primary-color);
@@ -68,13 +111,12 @@
 .col-title {
     flex: 1;
     .job-title {
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        white-space: wrap;
+        display: block;
         font-size: 1.7rem;
         font-weight: 600;
         color: var(--text-color);
         line-height: 2rem;
+        text-overflow: ellipsis;
     }
     .job-descript {
         font-size: 1.4rem;
@@ -94,7 +136,7 @@
     .job-expire,
     .address,
     .update {
-        background: #e9eaec;
+        background: #f4f5f5;
         border-radius: 4px;
         color: #000000;
         display: inline-block;

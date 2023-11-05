@@ -2,9 +2,17 @@ import classNames from 'classnames/bind';
 import styles from './ProfileAddingInfo.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPenToSquare, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { Modal, Button } from 'react-bootstrap';
+import { useState, useCallback } from 'react';
+import Editor from '../TextEditorArea';
 
 const cl = classNames.bind(styles);
 function ProfileAddingInfo() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <div className={cl('wrapper ')}>
             <div className={cl('content')}>
@@ -21,7 +29,7 @@ function ProfileAddingInfo() {
                             <div className={cl('info')}>
                                 <h1 className={cl('contact-name')}>Everthing Alright</h1>
                                 <div className={cl('infos', 'row', 'align-items-center')}>
-                                    <div className={cl('info-item', 'col-lg-6')}>
+                                    <div className={cl('info-item', 'col')}>
                                         <FontAwesomeIcon icon={faEnvelope} className={cl('info-icon')} />
                                         everythingarright@gmail.com
                                     </div>
@@ -35,8 +43,29 @@ function ProfileAddingInfo() {
                     <div className={cl('card', 'about-me')}>
                         <h2 className={cl('strong-text')}>Giới thiệu bản thân</h2>
                         <span className={cl('normal-text')}>Giới thiệu điểm mạnh và số năm kinh nghiệm của bạn</span>
-                        <FontAwesomeIcon icon={faPlusCircle} className={cl('absoluted-icon')} />
+                        <FontAwesomeIcon icon={faPlusCircle} className={cl('absoluted-icon')} onClick={handleShow} />
                     </div>
+                    <Modal show={show} onHide={handleClose} centered className={cl('modal')}>
+                        <Modal.Header closeButton className={cl('modal-header')}>
+                            <Modal.Title className={cl('modal-title')}>Giới thiệu bản thân</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body className={cl('modal-body')}>
+                            <div className={cl('tips')}></div>
+                            {/*
+                             */}
+                            <Editor placeholder={'Write something or insert a star ★'} />
+                            {/*
+                             */}
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Hủy
+                            </Button>
+                            <Button variant="primary" onClick={handleClose}>
+                                Lưu
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
                 <div className={cl('box')}>
                     <div className={cl('card', 'work-experience')}>

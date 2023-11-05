@@ -1,6 +1,6 @@
 import { Button } from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import styles from './Header.module.scss';
+import styles from './HeaderRecruiterPage.module.scss';
 import classNames from 'classnames/bind';
 import logo from '../../assets/images/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 const cl = classNames.bind(styles);
-function Header() {
+function HeaderRecruiterPage() {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
 
@@ -24,23 +24,14 @@ function Header() {
                 <div className={cl('nav-left')}>
                     <ul>
                         <li className={cl('nav-left_item')}>
-                            <Link to="/job">Việc làm</Link>
+                            <Link to="/recruiter">Giới thiệu</Link>
                         </li>
                         <li className={cl('nav-left_item')}>
-                            <Link to="/cv">Hồ sơ & CV</Link>
-                        </li>
-                        <li className={cl('nav-left_item')}>
-                            <Link to="/company">Công ty</Link>
-                        </li>
-                        <li className={cl('nav-left_item')}>
-                            <Link to="/blog">Blog</Link>
+                            <Link to="/recruiter">Hỗ trợ</Link>
                         </li>
                     </ul>
                 </div>
                 <div className={cl('nav-right')}>
-                    <Button className={cl('recruiter-btn')} onClick={() => navigate('/recruiter')}>
-                        Nhà Tuyển Dụng
-                    </Button>
                     <Button variant="outline-primary" className={cl('login-btn')} onClick={() => navigate('/login')}>
                         Đăng nhập
                     </Button>
@@ -57,10 +48,10 @@ function Header() {
                     <FontAwesomeIcon icon={faBars} />
                 </div>
                 <Offcanvas show={show} onHide={handleClose}>
-                    <Offcanvas.Header className={cl('offcanvas-header')} closeButton>
+                    <Offcanvas.HeaderRecruiterPage className={cl('offcanvas-HeaderRecruiterPage')} closeButton>
                         <img src={logo} alt="" style={{ height: '40px' }} />
                         <Offcanvas.Title className={cl('offcanvas-title')}>JobLd</Offcanvas.Title>
-                    </Offcanvas.Header>
+                    </Offcanvas.HeaderRecruiterPage>
                     <Offcanvas.Body className={cl('offcanvas-body')}>
                         <Link to="/register" className={cl('body-item')}>
                             Đăng ký tài khoản mới
@@ -87,4 +78,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default HeaderRecruiterPage;

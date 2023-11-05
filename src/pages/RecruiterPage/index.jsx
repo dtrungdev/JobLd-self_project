@@ -1,13 +1,13 @@
+import HeaderRecruiterPage from '../../components/HeaderRecruiterPage';
 import classNames from 'classnames/bind';
-import styles from './JobPage.module.scss';
-import Header from '../../components/Header';
+import styles from './RecruiterPage.module.scss';
 
 const cl = classNames.bind(styles);
 
-function JobPage() {
+function RecruiterPage() {
     return (
         <>
-            <Header />
+            <HeaderRecruiterPage />
             <div className={cl('wrapper')}>
                 <div className={cl('content')}></div>
             </div>
@@ -15,4 +15,4 @@ function JobPage() {
     );
 }
 
-export default JobPage;
+export default RecruiterPage;

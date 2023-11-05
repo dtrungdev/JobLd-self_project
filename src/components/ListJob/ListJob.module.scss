@@ -48,34 +48,39 @@
         align-items: center;
     }
 }
-
 .filter-condition {
-    padding: 0 7px 0 10px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border: 1px solid #dee0e2;
-    border-radius: 6px;
-    gap: 5px;
-    .input-group-text {
-        line-height: 1.9rem;
-        color: #717171;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 5px;
+    position: relative;
+    background-color: #fff;
+    padding: 8px 5px;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    .list-option {
+        top: 34px;
     }
-    select {
+    .filter-icon {
+        margin-right: 4px;
+    }
+    .selection {
+        padding-left: 60px;
         font-size: 1.6rem;
-        height: 100%;
-        border: 0;
-        &:focus {
-            border: none;
-            box-shadow: none;
-        }
+    }
+    .select-text {
+        color: #454545;
+        display: inline-flex;
+        align-items: center;
+        position: absolute;
+        white-space: pre-wrap;
+        left: 4px;
+        top: 0;
+        bottom: 0;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+    .default-select-text {
+        min-width: 100px;
     }
 }
+
 .box-tag::-webkit-scrollbar {
     display: none;
 }
@@ -87,6 +92,7 @@
     white-space: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
+    transition: all 2s;
     .box-tag_item {
         display: inline-block;
         padding: 9px 12px;
@@ -99,4 +105,49 @@
 }
 
 .box-job {
+}
+
+/////Pagination
+.change-page {
+    margin-top: 20px;
+    width: 100%;
+    .pagination {
+        font-size: 1.6rem;
+        font-family: 'Lexend', sans-serif;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .pagination a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+        width: 36px;
+        border-radius: 5px;
+        border: 1px solid #bababa;
+        color: #6c7ac9;
+    }
+
+    .pagination__link {
+        font-size: 1.3rem;
+
+        text-decoration: none;
+        color: #000 !important;
+    }
+
+    .pagination__link--active a {
+        color: #fff !important;
+        background: var(--primary-color);
+    }
+
+    .pagination__link--disabled a {
+        color: rgb(216, 216, 216) !important;
+        border: 1px solid rgb(205, 205, 205);
+    }
 }

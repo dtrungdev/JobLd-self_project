@@ -5,12 +5,16 @@ import BlogPage from '../pages/BlogPage';
 import LoginPage from '../pages/Loginpage';
 import RegisterPage from '../pages/RegisterPage';
 import CompanyDetail from '../pages/CompanyDetail';
-import JobPage from '../pages/JobPage';
+import FindjobPage from '../pages/FindjobPage';
 import JobDetail from '../pages/JobDetail';
+import JobPage from '../pages/JobPage';
 import ProfilePage from '../pages/ProfilePage';
+import RecruiterPage from '../pages/RecruiterPage';
 
 const publicRoutes = [
     { path: '/', component: HomePage },
+
+    { path: '/recruiter', component: RecruiterPage },
 
     { path: '/company/123', component: CompanyDetail },
     { path: '/company', component: CompanyPage },
@@ -18,6 +22,7 @@ const publicRoutes = [
     { path: '/login', component: LoginPage },
     { path: '/register', component: RegisterPage },
 
+    { path: '/find-job', component: FindjobPage },
     { path: '/job', component: JobPage },
     { path: '/job/123', component: JobDetail },
 

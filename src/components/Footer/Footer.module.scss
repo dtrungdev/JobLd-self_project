@@ -1,3 +1,12 @@
+@media (max-width: 768px) {
+    .content {
+        text-align: center;
+        .footer-like {
+            display: none;
+        }
+    }
+}
+
 .wrapper {
     background: linear-gradient(291deg, #189751 0%, #123138 54.89%);
 }
@@ -23,17 +32,6 @@
         font-size: 1.8rem;
         font-weight: 500;
     }
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-
-    flex-wrap: wrap;
-}
-
-.column {
-    max-width: 75%;
 }
 
 .box-item {

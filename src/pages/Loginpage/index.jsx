@@ -50,7 +50,6 @@ function LoginPage() {
     const handleLogin = async () => {
         let check = isValidInputs();
         let response = await loginUser(email, password);
-
         if (response && response.data && +response.data.EC === 0) {
             navigate('/');
         }
