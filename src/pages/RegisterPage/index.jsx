@@ -90,7 +90,7 @@ function RegisterPage() {
         let check = isValidInputs();
         if (check === true) {
             let response = await registerNewUser(fullname, email, password);
-            let serverData = response.data;
+            let serverData = response;
             if (+serverData.EC === 0) {
                 navigate('/');
             } else {
@@ -156,7 +156,9 @@ function RegisterPage() {
                                             id="email"
                                             placeholder="Nhập email"
                                             value={email}
-                                            onChange={(event) => setEmail(event.target.value)}
+                                            onChange={(event) => {
+                                                setEmail(event.target.value);
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -174,7 +176,7 @@ function RegisterPage() {
                                             <FontAwesomeIcon icon={faShield} />
                                         </span>
                                         <input
-                                            type={isShowPassword === true ? 'password' : 'text'}
+                                            type={isShowPassword === false ? 'password' : 'text'}
                                             name=""
                                             id="password"
                                             placeholder="Nhập mật khẩu"
@@ -202,7 +204,7 @@ function RegisterPage() {
                                             <FontAwesomeIcon icon={faShield} />
                                         </span>
                                         <input
-                                            type={isShowPassword === true ? 'password' : 'text'}
+                                            type={isShowPassword === false ? 'password' : 'text'}
                                             name=""
                                             id="password"
                                             placeholder="Nhập lại mật khẩu"

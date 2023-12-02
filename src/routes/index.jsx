@@ -10,11 +10,17 @@ import JobDetail from '../pages/JobDetail';
 import JobPage from '../pages/JobPage';
 import ProfilePage from '../pages/ProfilePage';
 import RecruiterPage from '../pages/RecruiterPage';
+import RecruiterLogin from '../pages/RecruiterLogin';
+import RecruiterRegister from '../pages/RecruiterRegister';
+import RecruiterApp from '../pages/RecruiterApp';
 
 const publicRoutes = [
     { path: '/', component: HomePage },
 
     { path: '/recruiter', component: RecruiterPage },
+    { path: '/recruiter/app', component: RecruiterApp },
+    { path: '/recruiter/login', component: RecruiterLogin },
+    { path: '/recruiter/register', component: RecruiterRegister },
 
     { path: '/company/123', component: CompanyDetail },
     { path: '/company', component: CompanyPage },

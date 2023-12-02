@@ -1,0 +1,119 @@
+.manage-menu {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    .select {
+        max-width: 300px;
+        background-color: #fff;
+        height: 40px;
+        border: 1px solid #d8d8d8 !important;
+        font-size: 1.5rem;
+        border: none;
+        width: 100%;
+        padding: 7px 10px;
+        outline: none;
+        &:focus-within {
+            border: none;
+        }
+    }
+    input {
+        font-size: 1.5rem;
+        border: none;
+        width: 100%;
+        padding: 7px 12px;
+        outline: none;
+        &:focus-within {
+            border: none;
+        }
+    }
+    .btn-create-campaign {
+        min-width: 140px;
+        margin-right: 10px;
+    }
+    .btn-search {
+        min-width: 40px;
+    }
+    .btn-create-campaign,
+    .btn-search {
+        height: 40px;
+        font-size: 1.4rem;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        &:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+    }
+}
+
+.manage-table {
+    th {
+        padding: 8px 20px !important;
+    }
+    td {
+        padding: 20px !important;
+    }
+    .field-data {
+        &:hover {
+            td {
+                background-color: #f4f4f4;
+            }
+        }
+    }
+    .toggle {
+        margin-right: 16px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+
+        .bar {
+            display: block;
+
+            width: 28px;
+            height: 12px;
+            border-radius: 8px;
+        }
+        .knob {
+            position: absolute;
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: var(--cr-toggle-box-shadow, 0 1px 6px 0 rgba(0, 0, 0, 0.4));
+        }
+    }
+    .status {
+        font-weight: 400;
+        margin-right: 12px;
+        background-color: #f2ecec;
+        padding: 4px;
+        border-radius: 6px;
+    }
+    .title-data {
+        display: inline-block;
+        font-weight: 500;
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+
+    .campaign-created {
+        font-size: 1.4rem;
+    }
+
+    .icon-action {
+        padding: 4px;
+        cursor: pointer;
+    }
+
+    .highlight {
+        cursor: pointer;
+        background-color: #e8fef2;
+        color: #03b452;
+        border-radius: 4px;
+        font-weight: 600;
+        padding: 4px;
+    }
+}

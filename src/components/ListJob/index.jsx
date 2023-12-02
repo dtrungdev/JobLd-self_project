@@ -88,9 +88,10 @@ function ListJob() {
 
     const fetchJob = async () => {
         let response = await fetchAllJob(currentPage, currentLimit);
-        if (response && response.data && response.data.EC === 0) {
-            setTotalPages(response.data.DT.totalPages);
-            setListJob(response.data.DT.jobs);
+        console.log(response);
+        if (response && response.EC === 0) {
+            setTotalPages(response.DT.totalPages);
+            setListJob(response.DT.jobs);
         }
     };
 

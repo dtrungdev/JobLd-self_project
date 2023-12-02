@@ -2,39 +2,35 @@ import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
 
 import 'react-quill/dist/quill.snow.css';
+import './TextEditor.module.scss';
 
-export class Editor extends Component {
+class Editor extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             text: '',
         };
     }
 
     modules = {
-        toolbar: [
-            [{ header: [2, 3, false] }],
-            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-            [{ list: 'ordered' }, { list: 'bullet' }],
-            ['image'],
-            [{ align: [] }],
-        ],
+        toolbar: [['bold', 'italic', 'underline'], [{ list: 'ordered' }, { list: 'bullet' }], [{ align: [] }]],
     };
 
-    formats = ['header', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'image', 'align'];
+    formats = ['bold', 'italic', 'underline', 'list', 'bullet', 'align'];
 
     handleChange = (value) => {
         this.setState((prevState) => ({
             ...prevState,
             text: value,
         }));
+        console.log(value);
     };
 
     render() {
-        console.log(this.props.readOnly);
+        console.log(this.state.text);
         return (
             <>
-                <span>{this.props.readOnly.toString()}</span>
                 <div className="text-editor">
                     <ReactQuill
                         theme="snow"
@@ -42,6 +38,7 @@ export class Editor extends Component {
                         formats={this.formats}
                         onChange={this.handleChange}
                         value={this.state.text}
+                        placeholder={this.props.placeholder}
                     />
                 </div>
             </>

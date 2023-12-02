@@ -1,0 +1,182 @@
+@media screen and (max-width: 1200px) {
+    .content {
+        .right {
+            display: none;
+        }
+        .block {
+            display: block;
+        }
+    }
+}
+
+.auth::-webkit-scrollbar {
+    display: none;
+}
+.auth {
+    height: 100vh;
+    overflow-y: auto;
+    flex: 1;
+    flex-direction: column;
+    font-family: 'Lexend', 'san-serif';
+    font-weight: 400;
+    padding: 60px 16px 20px;
+    .auth-inner {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+    }
+    .alert-message {
+        font-size: 1.4rem;
+        padding: 10px 15px;
+        color: red;
+        background-color: rgba(red, 0.07);
+        margin-bottom: 5px;
+    }
+    .hidden {
+        display: none;
+    }
+    label {
+        font-weight: 500;
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+    }
+    .form-group {
+        margin-bottom: 24px;
+    }
+    .forgot-password {
+        cursor: pointer;
+        font-size: 1.4rem;
+        text-align: right;
+        margin-bottom: 24px;
+        color: var(--primary-color);
+    }
+    .btn-sign {
+        height: 40px;
+        padding: 6px 12px;
+        width: 100%;
+        font-size: 1.5rem;
+        background-color: var(--primary-color);
+        border: var(--primary-color);
+        &:hover {
+            background-color: rgba(5, 130, 47, 0.9);
+        }
+    }
+    .separate {
+        margin: 16px;
+        font-size: 1.4rem;
+        text-align: center;
+        color: #5d5d5d;
+    }
+    .footer {
+        margin-top: 2.4rem;
+        font-size: 1.4rem;
+        .text-success {
+            color: var(--primary-color);
+        }
+    }
+}
+.header {
+    padding-bottom: 24px;
+    .title {
+        font-size: 2.1rem;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+    }
+    .info {
+        font-size: 1.4rem;
+    }
+}
+.form-group {
+    input {
+        font-size: 1.5rem;
+        border: none;
+        width: 100%;
+        padding: 7px 12px;
+        outline: none;
+        &:focus-within {
+            border: none;
+        }
+    }
+}
+.input-group {
+    display: flex;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    .icon-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        color: var(--primary-color);
+        font-size: 1.6rem;
+    }
+    .hide-password {
+        color: #868686;
+        cursor: pointer;
+        svg {
+            padding: 12px;
+        }
+    }
+}
+.error {
+    display: flex;
+    border: 1px solid red;
+    border-radius: 3px;
+    .icon-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        color: red;
+        font-size: 1.6rem;
+    }
+    .hide-password {
+        color: #868686;
+        cursor: pointer;
+        svg {
+            padding: 12px;
+        }
+    }
+}
+
+.right {
+    padding: 30vh 40px;
+    font-family: 'Lexend', 'san-serif';
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: #fff;
+    height: 100vh;
+    width: 400px;
+    background: linear-gradient(0deg, #189751 0%, #123138 54.89%);
+    display: block;
+    position: relative;
+    .text {
+        width: 100%;
+        position: absolute;
+        transform: translateY(-50%);
+        margin-top: -50px;
+        top: 50%;
+        .slogan-text {
+            font-size: 2.4rem;
+        }
+    }
+}
+
+.go-home {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 1.6rem;
+    margin-top: 16px;
+    border: 1px solid #189751;
+    border-radius: 4px;
+    color: #189751;
+    font-weight: 500;
+}
+
+.block {
+    display: none;
+}

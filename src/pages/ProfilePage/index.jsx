@@ -31,37 +31,7 @@ function ProfilePage() {
             <div className={cl('wrapper')}>
                 <div className={cl('content', 'container')}>
                     <div className={cl('main', 'row')}>
-                        <div className={cl('col-lg-4')}>
-                            <div className={cl('info-card')}>
-                                <h3 className={cl('info-card_title')}>Quản lý CV</h3>
-                                <div className={cl('suggestion')}>
-                                    Tải CV của bạn bên dưới để có thể sử dụng xuyên suốt quá trình tìm việc
-                                </div>
-                                <div className={cl('cv-manager')}>
-                                    <div className={cl('')}>
-                                        <div className={cl('cv-upload')}>
-                                            <button className={cl('btn-upload-cv')}>
-                                                <FontAwesomeIcon icon={faUpload} />
-                                                Tải CV lên
-                                                <input
-                                                    type="file"
-                                                    ref={inputUploadRef}
-                                                    name="myfile"
-                                                    onChange={handleUploadCV}
-                                                />
-                                            </button>
-                                            {showFileUploaded.show && <p className={cl('file-uploaded')}></p>}
-                                            <iframe src={viewFile} className={cl('review-file')}></iframe>
-                                            <p>
-                                                (Sử dụng tệp .pdf hoặc định dạng ảnh (.img, .png, .jpg,...) không chứa
-                                                mật khẩu bảo vệ và dưới 3MB)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cl('information', 'col-lg-8')}>
+                        <div className={cl('information')}>
                             <ProfileAddingInfo />
                         </div>
                     </div>

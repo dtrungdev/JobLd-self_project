@@ -1,58 +1,84 @@
-.App {
-    font-family: cursive;
-}
-
-.title {
-    text-align: center;
-}
-
-.custom-select-container {
-    display: inline-block;
-    min-width: 250px;
-    text-align: center;
+.select {
     position: relative;
-}
+    font-size: 1.7rem;
 
-.selected-text {
-    background-color: #47eded;
-    padding: 6px 20px;
-    border-bottom: 1px solid #37b0b0;
-}
+    .show-text {
+        cursor: pointer;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+    }
+    .text-render {
+        min-width: 140px;
+        flex: 1;
+    }
+    .icon-select {
+        color: #000;
+        font-size: 1.4rem;
+        padding-left: 8px;
+    }
+    .show-list-option {
+        position: absolute;
+        z-index: 10;
+        background-color: #fff;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        border-radius: 4px;
+        box-shadow: 0px 6px 32px rgba(0, 0, 0, 0.1);
+    }
+    .list-options {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        max-height: 180px;
+        overflow-x: hidden;
 
-.selected-text::after {
-    content: '';
-    position: absolute;
-    right: 10px;
-    top: 16px;
-    border: 7px solid transparent;
-    border-color: #fff transparent transparent transparent;
-}
+        /* Track */
+    }
+    // .list-options::-webkit-scrollbar {
+    //     width: 7px;
+    // }
+    // .list-options::-webkit-scrollbar-thumb {
+    //     border-radius: 8px;
+    //     background-color: #cacaca;
+    // }
+    // .list-options::-webkit-scrollbar-track {
+    //     background: #fff;
+    // }
 
-.selected-text.active::after {
-    top: 8px;
-    border-color: transparent transparent #fff transparent;
-}
+    .search-input {
+        max-width: 100%;
+        padding: 5px 8px;
 
-ul {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-.select-options {
-    position: absolute;
-    width: 100%;
-}
-
-li {
-    list-style-type: none;
-    padding: 6px 20px;
-    background: #47eded;
-    border-bottom: 1px solid #37b0b0;
-    cursor: pointer;
-}
-
-li:hover {
-    background-color: #32a6a6;
-    color: #ffffff;
+        .input-options {
+            max-width: 100%;
+            margin: 6px 0px;
+            padding: 4px 8px;
+            border: 1px solid #9e9d9d;
+            border-radius: 4px;
+            outline: 1px solid #717171;
+        }
+    }
+    .option {
+        cursor: pointer;
+        width: 100%;
+        max-width: 100%;
+        padding: 6px 15px;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        background-color: #fff;
+        &:hover {
+            background-color: rgb(234, 234, 234);
+        }
+    }
+    .option-active {
+        color: var(--primary-color);
+    }
+    .selected-check-icon {
+        color: var(--primary-color);
+        position: absolute;
+        right: 8px;
+    }
 }

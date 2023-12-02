@@ -1,6 +1,8 @@
 import classNames from 'classnames/bind';
 import styles from './CompanyListItem.module.scss';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBuilding, faChevronRight, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const cl = classNames.bind(styles);
 
@@ -20,16 +22,20 @@ function CompanyListItem() {
                     </div>
 
                     <div className={cl('company-info')}>
-                        <h3 className={cl('title')}>CÔNG TY TNHH BUYMED</h3>
-                        <span className={cl('job-availble')}>7 việc làm đang tuyển dụng</span>
-                        <p className={cl('description')}>
-                            " Giới thiệu về thuocsi thuocsi.vn được thành lập từ năm 2018, là một trong những startup
-                            thành công trong lĩnh vực công nghệ về y tế Hiện tại là cổng điện tử cung cấp thuốc cho hơn
-                            1.000 nhà thuốc và phòng khám trên khắp Việt Nam. Là một trong những nơi làm việc thu hút
-                            các tài năng trẻ với đam mê ứng dụng công nghệ 4.0 vào nền tảng vững vàng "
+                        <h3 className={cl('name')}>CÔNG TY TNHH BUYMED</h3>
+                        <p className={cl('address')}>
+                            <FontAwesomeIcon icon={faLocationDot} className={cl('icon')} />
+                            Hồ Chí Minh
                         </p>
+                        <p className={cl('category')}>
+                            <FontAwesomeIcon icon={faBuilding} className={cl('icon')} />
+                            Bất động sản
+                        </p>
+                        <span className={cl('job-availble')}>
+                            7 việc làm đang tuyển dụng{' '}
+                            <FontAwesomeIcon icon={faChevronRight} className={cl('job-availble_icon')} />
+                        </span>
                     </div>
-                    <div className={cl('overlay')}></div>
                 </Link>
             </div>
         </div>

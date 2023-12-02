@@ -97,8 +97,8 @@ function SearchJob() {
 
     const fetchPostion = async () => {
         let response = await fetchPositionToSearch();
-        if (response && response.data && response.data.EC === 0) {
-            setSearchResult(response.data.DT);
+        if (response && response && response.EC === 0) {
+            setSearchResult(response.DT);
         }
         return;
     };

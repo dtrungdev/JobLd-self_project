@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from './LoginPage.module.scss';
+import styles from './RecruiterLogin.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEyeSlash, faShield } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
@@ -11,7 +11,7 @@ import logo from '../../assets/images/logo.svg';
 import { loginUser } from '../../services/userService';
 
 const cl = classNames.bind(styles);
-function LoginPage() {
+function RecruiterLogin() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -67,9 +67,9 @@ function LoginPage() {
                     <div className={cl('auth-inner')}>
                         <div className={cl('auth-form')}>
                             <header className={cl('header')}>
-                                <h2 className={cl('title')}>Chào mừng bạn đã quay trở lại với JobLd</h2>
+                                <h2 className={cl('title')}>Chào mừng nhà tuyển dụng đã quay trở lại với JobLd</h2>
                                 <div className={cl('info')}>
-                                    Cùng xây dựng một hồ sơ nổi bật và nhận được các cơ hội sự nghiệp lý tưởng
+                                    Tìm kiếm những ứng viên chất lượng và phù hợp với yêu cầu của công ty
                                 </div>
                             </header>
                             <div className={isShowAlert ? cl('alert-message') : cl('hidden')}>{alertMessage}</div>
@@ -99,7 +99,7 @@ function LoginPage() {
                                     </div>
                                 </div>
                                 <div className={cl('form-group')}>
-                                    <label htmlFor="email">Password</label>
+                                    <label htmlFor="password">Password</label>
                                     <div
                                         className={
                                             objectValidInput.isValidPassword
@@ -130,24 +130,10 @@ function LoginPage() {
                                 <Button variant="primary" className={cl('btn-sign')} onClick={() => handleLogin()}>
                                     Đăng nhập
                                 </Button>
-                                <div className={cl('separate')}>Hoặc đăng nhập bằng</div>
-                                <div className={cl('social-login')}>
-                                    <a href="" className={cl('btn', 'btn-primary', 'btn-google')}>
-                                        <FontAwesomeIcon icon={faGoogle} />
-                                        Google
-                                    </a>
-                                    <a href="" className={cl('btn', 'btn-primary', 'btn-facebook')}>
-                                        <FontAwesomeIcon icon={faFacebook} />
-                                        Facebook
-                                    </a>
-                                    <a href="" className={cl('btn', 'btn-primary', 'btn-linkedin')}>
-                                        <FontAwesomeIcon icon={faLinkedin} />
-                                        Linkedin
-                                    </a>
-                                </div>
+
                                 <div className={cl('footer', 'text-center')}>
                                     <span>Bạn chưa có tài khoản? </span>
-                                    <Link to="/register" relative="path" className={cl('text-success')}>
+                                    <Link to="/recruiter/register" relative="path" className={cl('text-success')}>
                                         Đăng ký ngay
                                     </Link>
                                     <div className={cl('block')}>
@@ -172,4 +158,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+export default RecruiterLogin;

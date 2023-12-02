@@ -32,10 +32,18 @@ function HeaderRecruiterPage() {
                     </ul>
                 </div>
                 <div className={cl('nav-right')}>
-                    <Button variant="outline-primary" className={cl('login-btn')} onClick={() => navigate('/login')}>
+                    <Button
+                        variant="outline-primary"
+                        className={cl('login-btn')}
+                        onClick={() => navigate('/recruiter/login')}
+                    >
                         Đăng nhập
                     </Button>
-                    <Button variant="primary" className={cl('register-btn')} onClick={() => navigate('/register')}>
+                    <Button
+                        variant="primary"
+                        className={cl('register-btn')}
+                        onClick={() => navigate('/recruiter/register')}
+                    >
                         Đăng ký
                     </Button>
                     <div className={cl('change-language')}>
